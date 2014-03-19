@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Строитель</title>
+    </head>  
+    <body>
+        <input type="text" id="inp" />
+        <input type="submit" onclick="setNode()" value="Добавить" />
+        <div id="tree"></div>
+
+        <script src="builder.js"></script>
+
+        <script type="text/javascript">
+            var tree;
+
+            var $tree = document.getElementById("tree");
+            var drawer = new Drawer();
+            var htmlTreeView = new HtmlTreeView($tree);
+            drawer.setTreeBuilder(htmlTreeView);
+            drawer.constructTree("Ген", "A/B/C");
+            drawer.display();
+            tree = drawer.getTree();
+            console.log(tree);
+
+            function setNode(){
+                $tree.innerHTML = "";
+                var path = document.getElementById("inp").value;
+                tree.setNodes(path);
+                drawer.display();
+                console.log(tree);
+            }
+        </script>
+    </body>
+</html>

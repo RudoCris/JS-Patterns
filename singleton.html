@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Паттерны</title>
+    </head>  
+    <body>
+        <script src="singleton.js"></script>
+        <script type="text/javascript">
+
+            var a = new Singleton();
+            var b = new Singleton();
+            console.log(a === b);
+
+            for(var i=0; i<20; ++i){
+                a.setData(makeid(), (Math.ceil(Math.random()*10))%3)
+            }
+            
+            console.log('A');
+            a.getData().forEach(function(t){
+                    console.log(t.d, t.p);
+            });
+
+            console.log('B');
+
+            b.getData().forEach(function(t){
+                    console.log(t.d, t.p);
+            });
+
+        </script>
+    </body>
+</html>
